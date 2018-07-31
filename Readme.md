@@ -2,7 +2,7 @@
 
 ````
 go build Pluralsight.go
-Pluralsight.exe --name=demo@gmail.com --password=demo123 --playlisturl=https://app.pluralsight.com/player?course=go-cli-playbook&author=mike-vansickle&name=45c18713-161d-4455-a309-56507c151581&clip=3&mode=live
+Pluralsight.exe --name="demo@gmail.com" --password="demo123" --playlisturl="https://app.pluralsight.com/player?course=go-cli-playbook&author=mike-vansickle&name=45c18713-161d-4455-a309-56507c151581&clip=3&mode=live"
 Processing MetaData for: 0_Course_Overview_0_Course_Overview.mp4
 Processing MetaData for: 1_Introduction_0_Introduction.mp4
 Processing MetaData for: 1_Introduction_1_The_Go_Command.mp4

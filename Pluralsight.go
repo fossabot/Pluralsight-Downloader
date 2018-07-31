@@ -93,7 +93,7 @@ func OneGetAuth(email string, password string) *authStruct {
 	req.Header.Set("content-type", "application/json;charset=UTF-8")
 	resp, _ := client.Do(req)
 	if resp.StatusCode != 200 {
-		fmt.Fprintf(os.Stderr, "Authorization Failed")
+		fmt.Println("Authorization Failed")
 		os.Exit(1)
 	}
 	_authStruct := new(authStruct)
@@ -227,6 +227,7 @@ func main() {
 	for i := 0; i < workers; i++ {
 		go worker(i, jobs, results)
 	}
+	start := time.Now()
 	for i := 0; i < length; i++ {
 		jobs <- _list[i]
 	}
@@ -235,6 +236,7 @@ func main() {
 	for a := 0; a < length; a++ {
 		fmt.Println("Download : ", <-results)
 	}
+	fmt.Println("Time Taken: ", time.Since(start).String())
 }
 
 // fmt.Println("Status Code: ", resp.StatusCode)
