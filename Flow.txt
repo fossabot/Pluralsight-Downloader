@@ -1,0 +1,1036 @@
+1.
+https://app.pluralsight.com/mobile-api/v2/user/device/authenticated
+Request:
+{"DeviceModel":"Windows Desktop","DeviceName":null,"Username":"demo@gmail.com","Password":""}
+Response:
+{
+    "deviceId": "0fb7207c-4ced-4bf9-9ed3-35f4cb2b789b",
+    "refreshToken": "kWIln9Das+9ozFt84XtQqIHGMemHwglA5ScmnEbiz2s="
+}
+2.
+https://app.pluralsight.com/mobile-api/v2/user/authorization/0fb7207c-4ced-4bf9-9ed3-35f4cb2b789b
+Request:
+{
+    "deviceId": "0fb7207c-4ced-4bf9-9ed3-35f4cb2b789b",
+    "refreshToken": "kWIln9Das+9ozFt84XtQqIHGMemHwglA5ScmnEbiz2s="
+}
+Response:
+{
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiJ7XCJVc2VySGFuZGxlXCI6XCIzMTE5ZDliOC1kMWI4LTQyMGItYTYzMC1hN2U4OGIyYjA3MzNcIixcIkV4cGlyYXRpb25cIjpcIjIwMTgtMDgtMDdUMDc6NDY6MTguMTQxMjk2NyswMDowMFwiLFwiSXNFeHBpcmVkXCI6ZmFsc2V9In0.zLwVFb76YTJkon6R4tj_BGdYvugk5G1DLuMUdIy3Els",
+    "jwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJoYW5kbGUiOiIzMTE5ZDliOC1kMWI4LTQyMGItYTYzMC1hN2U4OGIyYjA3MzMiLCJpYXQiOjE1MzMwMjMxNzgsImV4cCI6MTUzMzYyNzk3OH0.jChh28X60zZQq0zdKm4G7MOV9X9VTKBYyewB4cue_Jw",
+    "userHandle": "3119d9b8-d1b8-420b-a630-a7e88b2b0733",
+    "expiration": "2018-08-07T07:46:18Z",
+    "authenticated": true,
+    "offlineAccess": {
+        "viewOffline": true,
+        "cacheDays": 30,
+        "courseLimit": 30
+    }
+}
+
+
+
+3.
+https://app.pluralsight.com/player/api/graphql
+Request:
+
+{"query":"query BootstrapPlayer { rpc {        bootstrapPlayer {          profile {                firstName                lastName                email                username                userHandle                authed                isAuthed                plan              }              course(courseId: \"go-cli-playbook\") {                name                title                courseHasCaptions                translationLanguages {                  code                  name                }                supportsWideScreenVideoFormats                timestamp                modules {                  name                  title                  duration                  formattedDuration                  author                  authorized                  clips {                    authorized                    clipId                    duration                    formattedDuration                    id                    index                    moduleIndex                    moduleTitle                    name                    title                    watched                  }                }              }            }          }        }      ","variables":{}}
+
+Response:
+{
+    "data": {
+        "rpc": {
+            "bootstrapPlayer": {
+                "profile": {
+                    "firstName": null,
+                    "lastName": null,
+                    "email": "",
+                    "username": null,
+                    "userHandle": null,
+                    "authed": false,
+                    "isAuthed": false,
+                    "plan": null
+                },
+                "course": {
+                    "name": "go-cli-playbook",
+                    "title": "The Go CLI Playbook",
+                    "courseHasCaptions": true,
+                    "translationLanguages": [
+                        {
+                            "code": "af",
+                            "name": "Afrikaans"
+                        },
+                        {
+                            "code": "az",
+                            "name": "Azərbaycan\u00adılı"
+                        },
+                        {
+                            "code": "id",
+                            "name": "Bahasa Indonesia"
+                        },
+                        {
+                            "code": "ms",
+                            "name": "Bahasa Melayu"
+                        },
+                        {
+                            "code": "bs",
+                            "name": "bosanski"
+                        },
+                        {
+                            "code": "ca",
+                            "name": "Català"
+                        },
+                        {
+                            "code": "cs",
+                            "name": "čeština"
+                        },
+                        {
+                            "code": "sn",
+                            "name": "chiShona"
+                        },
+                        {
+                            "code": "co",
+                            "name": "Corsu"
+                        },
+                        {
+                            "code": "cy",
+                            "name": "Cymraeg"
+                        },
+                        {
+                            "code": "da",
+                            "name": "dansk"
+                        },
+                        {
+                            "code": "de",
+                            "name": "Deutsch"
+                        },
+                        {
+                            "code": "et",
+                            "name": "eesti"
+                        },
+                        {
+                            "code": "en",
+                            "name": "English"
+                        },
+                        {
+                            "code": "es",
+                            "name": "español"
+                        },
+                        {
+                            "code": "eo",
+                            "name": "esperanto"
+                        },
+                        {
+                            "code": "eu",
+                            "name": "euskara"
+                        },
+                        {
+                            "code": "fr",
+                            "name": "français"
+                        },
+                        {
+                            "code": "fy",
+                            "name": "Frysk"
+                        },
+                        {
+                            "code": "ga",
+                            "name": "Gaeilge"
+                        },
+                        {
+                            "code": "gd",
+                            "name": "Gàidhlig"
+                        },
+                        {
+                            "code": "gl",
+                            "name": "galego"
+                        },
+                        {
+                            "code": "ha",
+                            "name": "Hausa"
+                        },
+                        {
+                            "code": "haw",
+                            "name": "Hawaiʻi"
+                        },
+                        {
+                            "code": "hr",
+                            "name": "hrvatski"
+                        },
+                        {
+                            "code": "ig",
+                            "name": "Igbo"
+                        },
+                        {
+                            "code": "xh",
+                            "name": "isiXhosa"
+                        },
+                        {
+                            "code": "zu",
+                            "name": "isiZulu"
+                        },
+                        {
+                            "code": "is",
+                            "name": "íslenska"
+                        },
+                        {
+                            "code": "it",
+                            "name": "italiano"
+                        },
+                        {
+                            "code": "sw",
+                            "name": "Kiswahili"
+                        },
+                        {
+                            "code": "ht",
+                            "name": "kreyòl ayisyen"
+                        },
+                        {
+                            "code": "lv",
+                            "name": "latviešu"
+                        },
+                        {
+                            "code": "lb",
+                            "name": "Lëtzebuergesch"
+                        },
+                        {
+                            "code": "lt",
+                            "name": "lietuvių"
+                        },
+                        {
+                            "code": "hu",
+                            "name": "magyar"
+                        },
+                        {
+                            "code": "mg",
+                            "name": "Malagasy"
+                        },
+                        {
+                            "code": "mt",
+                            "name": "Malti"
+                        },
+                        {
+                            "code": "nl",
+                            "name": "Nederlands"
+                        },
+                        {
+                            "code": "no",
+                            "name": "norsk"
+                        },
+                        {
+                            "code": "uz",
+                            "name": "O'zbekcha"
+                        },
+                        {
+                            "code": "pl",
+                            "name": "polski"
+                        },
+                        {
+                            "code": "pt",
+                            "name": "português"
+                        },
+                        {
+                            "code": "mi",
+                            "name": "Reo Māori"
+                        },
+                        {
+                            "code": "ro",
+                            "name": "română"
+                        },
+                        {
+                            "code": "st",
+                            "name": "Sesotho"
+                        },
+                        {
+                            "code": "sq",
+                            "name": "Shqip"
+                        },
+                        {
+                            "code": "sk",
+                            "name": "slovenčina"
+                        },
+                        {
+                            "code": "sl",
+                            "name": "slovenščina"
+                        },
+                        {
+                            "code": "so",
+                            "name": "Soomaali"
+                        },
+                        {
+                            "code": "sr",
+                            "name": "srpski"
+                        },
+                        {
+                            "code": "fi",
+                            "name": "suomi"
+                        },
+                        {
+                            "code": "sv",
+                            "name": "svenska"
+                        },
+                        {
+                            "code": "tl",
+                            "name": "Tagalog"
+                        },
+                        {
+                            "code": "vi",
+                            "name": "Tiếng Việt"
+                        },
+                        {
+                            "code": "tr",
+                            "name": "Türkçe"
+                        },
+                        {
+                            "code": "yo",
+                            "name": "Yoruba"
+                        },
+                        {
+                            "code": "el",
+                            "name": "Ελληνικά"
+                        },
+                        {
+                            "code": "be",
+                            "name": "Беларуская"
+                        },
+                        {
+                            "code": "bg",
+                            "name": "български"
+                        },
+                        {
+                            "code": "ky",
+                            "name": "Кыргыз"
+                        },
+                        {
+                            "code": "kk",
+                            "name": "Қазақ"
+                        },
+                        {
+                            "code": "mk",
+                            "name": "македонски јазик"
+                        },
+                        {
+                            "code": "mn",
+                            "name": "Монгол хэл"
+                        },
+                        {
+                            "code": "ru",
+                            "name": "русский"
+                        },
+                        {
+                            "code": "tg",
+                            "name": "Тоҷикӣ"
+                        },
+                        {
+                            "code": "uk",
+                            "name": "українська"
+                        },
+                        {
+                            "code": "hy",
+                            "name": "Հայերեն"
+                        },
+                        {
+                            "code": "ka",
+                            "name": "ქართული"
+                        },
+                        {
+                            "code": "yi",
+                            "name": "ייִדיש"
+                        },
+                        {
+                            "code": "iw",
+                            "name": "עברית"
+                        },
+                        {
+                            "code": "ur",
+                            "name": "اُردو"
+                        },
+                        {
+                            "code": "ar",
+                            "name": "العربية"
+                        },
+                        {
+                            "code": "ps",
+                            "name": "پښتو"
+                        },
+                        {
+                            "code": "sd",
+                            "name": "سنڌي"
+                        },
+                        {
+                            "code": "fa",
+                            "name": "فارسى"
+                        },
+                        {
+                            "code": "ku",
+                            "name": "کوردیی ناوەڕاست"
+                        },
+                        {
+                            "code": "ne",
+                            "name": "नेपाली"
+                        },
+                        {
+                            "code": "mr",
+                            "name": "मराठी"
+                        },
+                        {
+                            "code": "hi",
+                            "name": "हिंदी"
+                        },
+                        {
+                            "code": "bn",
+                            "name": "বাংলা"
+                        },
+                        {
+                            "code": "pa",
+                            "name": "ਪੰਜਾਬੀ"
+                        },
+                        {
+                            "code": "gu",
+                            "name": "ગુજરાતી"
+                        },
+                        {
+                            "code": "ta",
+                            "name": "தமிழ்"
+                        },
+                        {
+                            "code": "te",
+                            "name": "తెలుగు"
+                        },
+                        {
+                            "code": "kn",
+                            "name": "ಕನ್ನಡ"
+                        },
+                        {
+                            "code": "ml",
+                            "name": "മലയാളം"
+                        },
+                        {
+                            "code": "si",
+                            "name": "සිංහල"
+                        },
+                        {
+                            "code": "th",
+                            "name": "ไทย"
+                        },
+                        {
+                            "code": "my",
+                            "name": "ဗမာ"
+                        },
+                        {
+                            "code": "lo",
+                            "name": "ພາສາລາວ"
+                        },
+                        {
+                            "code": "km",
+                            "name": "ភាសាខ្មែរ"
+                        },
+                        {
+                            "code": "am",
+                            "name": "አማርኛ"
+                        },
+                        {
+                            "code": "ko",
+                            "name": "한국어"
+                        },
+                        {
+                            "code": "zh",
+                            "name": "中文"
+                        },
+                        {
+                            "code": "zh-TW",
+                            "name": "中文(台灣)"
+                        },
+                        {
+                            "code": "ja",
+                            "name": "日本語"
+                        }
+                    ],
+                    "supportsWideScreenVideoFormats": true,
+                    "timestamp": "2018-02-28T20:46:14+0000",
+                    "modules": [
+                        {
+                            "name": "686874aa-6498-42b8-a65f-7df7d403fa93",
+                            "title": "Course Overview",
+                            "duration": 109,
+                            "formattedDuration": "1:49",
+                            "author": "mike-vansickle",
+                            "authorized": true,
+                            "clips": [
+                                {
+                                    "authorized": true,
+                                    "clipId": "d8dba33b-e3e2-4adb-98e1-12a6b06bb3fa",
+                                    "duration": 109,
+                                    "formattedDuration": "1:49",
+                                    "id": "go-cli-playbook:686874aa-6498-42b8-a65f-7df7d403fa93:0:mike-vansickle",
+                                    "index": 0,
+                                    "moduleIndex": 0,
+                                    "moduleTitle": "Course Overview",
+                                    "name": "d8dba33b-e3e2-4adb-98e1-12a6b06bb3fa",
+                                    "title": "Course Overview",
+                                    "watched": false
+                                }
+                            ]
+                        },
+                        {
+                            "name": "45c18713-161d-4455-a309-56507c151581",
+                            "title": "Introduction",
+                            "duration": 585,
+                            "formattedDuration": "9:45",
+                            "author": "mike-vansickle",
+                            "authorized": true,
+                            "clips": [
+                                {
+                                    "authorized": true,
+                                    "clipId": "e664254c-81ec-4930-9986-1196da969987",
+                                    "duration": 53,
+                                    "formattedDuration": "0:53",
+                                    "id": "go-cli-playbook:45c18713-161d-4455-a309-56507c151581:0:mike-vansickle",
+                                    "index": 0,
+                                    "moduleIndex": 1,
+                                    "moduleTitle": "Introduction",
+                                    "name": "e664254c-81ec-4930-9986-1196da969987",
+                                    "title": "Introduction",
+                                    "watched": false
+                                },
+                                {
+                                    "authorized": true,
+                                    "clipId": "97c978fd-2bf3-46ae-939f-e3a9b0bf3700",
+                                    "duration": 151,
+                                    "formattedDuration": "2:31",
+                                    "id": "go-cli-playbook:45c18713-161d-4455-a309-56507c151581:1:mike-vansickle",
+                                    "index": 1,
+                                    "moduleIndex": 1,
+                                    "moduleTitle": "Introduction",
+                                    "name": "97c978fd-2bf3-46ae-939f-e3a9b0bf3700",
+                                    "title": "The Go Command",
+                                    "watched": false
+                                },
+                                {
+                                    "authorized": true,
+                                    "clipId": "f3a27a90-a50c-4cb8-816b-6f73582f917e",
+                                    "duration": 274,
+                                    "formattedDuration": "4:34",
+                                    "id": "go-cli-playbook:45c18713-161d-4455-a309-56507c151581:2:mike-vansickle",
+                                    "index": 2,
+                                    "moduleIndex": 1,
+                                    "moduleTitle": "Introduction",
+                                    "name": "f3a27a90-a50c-4cb8-816b-6f73582f917e",
+                                    "title": "Demo: The Go Command",
+                                    "watched": false
+                                },
+                                {
+                                    "authorized": true,
+                                    "clipId": "73ee39a6-b4ae-46e5-88b1-acfbcf0f39ac",
+                                    "duration": 105,
+                                    "formattedDuration": "1:45",
+                                    "id": "go-cli-playbook:45c18713-161d-4455-a309-56507c151581:3:mike-vansickle",
+                                    "index": 3,
+                                    "moduleIndex": 1,
+                                    "moduleTitle": "Introduction",
+                                    "name": "73ee39a6-b4ae-46e5-88b1-acfbcf0f39ac",
+                                    "title": "Navigating This Course",
+                                    "watched": false
+                                }
+                            ]
+                        },
+                        {
+                            "name": "fb4c9919-2330-42fd-a92b-c5226ac98338",
+                            "title": "Building and Running Programs",
+                            "duration": 2362,
+                            "formattedDuration": "39:22",
+                            "author": "mike-vansickle",
+                            "authorized": true,
+                            "clips": [
+                                {
+                                    "authorized": true,
+                                    "clipId": "3cc71e42-3b8f-4faf-b1aa-3acbb0037577",
+                                    "duration": 85,
+                                    "formattedDuration": "1:25",
+                                    "id": "go-cli-playbook:fb4c9919-2330-42fd-a92b-c5226ac98338:0:mike-vansickle",
+                                    "index": 0,
+                                    "moduleIndex": 2,
+                                    "moduleTitle": "Building and Running Programs",
+                                    "name": "3cc71e42-3b8f-4faf-b1aa-3acbb0037577",
+                                    "title": "Introduction",
+                                    "watched": false
+                                },
+                                {
+                                    "authorized": true,
+                                    "clipId": "f4d664e9-e59f-4024-9384-058e188c0fab",
+                                    "duration": 141,
+                                    "formattedDuration": "2:21",
+                                    "id": "go-cli-playbook:fb4c9919-2330-42fd-a92b-c5226ac98338:1:mike-vansickle",
+                                    "index": 1,
+                                    "moduleIndex": 2,
+                                    "moduleTitle": "Building and Running Programs",
+                                    "name": "f4d664e9-e59f-4024-9384-058e188c0fab",
+                                    "title": "Demo: The Run Command",
+                                    "watched": false
+                                },
+                                {
+                                    "authorized": true,
+                                    "clipId": "9e3ce4fe-9a9c-4eb7-8506-33215a305b06",
+                                    "duration": 264,
+                                    "formattedDuration": "4:24",
+                                    "id": "go-cli-playbook:fb4c9919-2330-42fd-a92b-c5226ac98338:2:mike-vansickle",
+                                    "index": 2,
+                                    "moduleIndex": 2,
+                                    "moduleTitle": "Building and Running Programs",
+                                    "name": "9e3ce4fe-9a9c-4eb7-8506-33215a305b06",
+                                    "title": "Demo: The Build Command",
+                                    "watched": false
+                                },
+                                {
+                                    "authorized": true,
+                                    "clipId": "69727e20-523d-4305-8c95-73e920df901c",
+                                    "duration": 166,
+                                    "formattedDuration": "2:46",
+                                    "id": "go-cli-playbook:fb4c9919-2330-42fd-a92b-c5226ac98338:3:mike-vansickle",
+                                    "index": 3,
+                                    "moduleIndex": 2,
+                                    "moduleTitle": "Building and Running Programs",
+                                    "name": "69727e20-523d-4305-8c95-73e920df901c",
+                                    "title": "Demo: The Install Command",
+                                    "watched": false
+                                },
+                                {
+                                    "authorized": true,
+                                    "clipId": "b8f3d1f3-ffe1-48c6-919a-01066e675acb",
+                                    "duration": 293,
+                                    "formattedDuration": "4:53",
+                                    "id": "go-cli-playbook:fb4c9919-2330-42fd-a92b-c5226ac98338:4:mike-vansickle",
+                                    "index": 4,
+                                    "moduleIndex": 2,
+                                    "moduleTitle": "Building and Running Programs",
+                                    "name": "b8f3d1f3-ffe1-48c6-919a-01066e675acb",
+                                    "title": "Demo: Buildflags",
+                                    "watched": false
+                                },
+                                {
+                                    "authorized": true,
+                                    "clipId": "2c3e0552-507d-4e04-9d1b-5e605fa5a0cf",
+                                    "duration": 226,
+                                    "formattedDuration": "3:46",
+                                    "id": "go-cli-playbook:fb4c9919-2330-42fd-a92b-c5226ac98338:5:mike-vansickle",
+                                    "index": 5,
+                                    "moduleIndex": 2,
+                                    "moduleTitle": "Building and Running Programs",
+                                    "name": "2c3e0552-507d-4e04-9d1b-5e605fa5a0cf",
+                                    "title": "Demo: Race Detection",
+                                    "watched": false
+                                },
+                                {
+                                    "authorized": true,
+                                    "clipId": "c4e57128-8a63-40a8-917c-785d0b0782ed",
+                                    "duration": 301,
+                                    "formattedDuration": "5:01",
+                                    "id": "go-cli-playbook:fb4c9919-2330-42fd-a92b-c5226ac98338:6:mike-vansickle",
+                                    "index": 6,
+                                    "moduleIndex": 2,
+                                    "moduleTitle": "Building and Running Programs",
+                                    "name": "c4e57128-8a63-40a8-917c-785d0b0782ed",
+                                    "title": "Demo: Building Shared Libraries",
+                                    "watched": false
+                                },
+                                {
+                                    "authorized": true,
+                                    "clipId": "b0c3ace3-81e4-4ff0-b971-ddc11d4ee18a",
+                                    "duration": 280,
+                                    "formattedDuration": "4:40",
+                                    "id": "go-cli-playbook:fb4c9919-2330-42fd-a92b-c5226ac98338:7:mike-vansickle",
+                                    "index": 7,
+                                    "moduleIndex": 2,
+                                    "moduleTitle": "Building and Running Programs",
+                                    "name": "b0c3ace3-81e4-4ff0-b971-ddc11d4ee18a",
+                                    "title": "Demo: Statically Linking to C Programs",
+                                    "watched": false
+                                },
+                                {
+                                    "authorized": true,
+                                    "clipId": "d55d7582-f1f8-4617-8ebd-890ae5afc10d",
+                                    "duration": 204,
+                                    "formattedDuration": "3:24",
+                                    "id": "go-cli-playbook:fb4c9919-2330-42fd-a92b-c5226ac98338:8:mike-vansickle",
+                                    "index": 8,
+                                    "moduleIndex": 2,
+                                    "moduleTitle": "Building and Running Programs",
+                                    "name": "d55d7582-f1f8-4617-8ebd-890ae5afc10d",
+                                    "title": "Demo: Dynamically Link to C Programs",
+                                    "watched": false
+                                },
+                                {
+                                    "authorized": true,
+                                    "clipId": "85c3f15b-0de4-43c0-aa06-4403348187db",
+                                    "duration": 265,
+                                    "formattedDuration": "4:25",
+                                    "id": "go-cli-playbook:fb4c9919-2330-42fd-a92b-c5226ac98338:9:mike-vansickle",
+                                    "index": 9,
+                                    "moduleIndex": 2,
+                                    "moduleTitle": "Building and Running Programs",
+                                    "name": "85c3f15b-0de4-43c0-aa06-4403348187db",
+                                    "title": "Demo: Building Plugins",
+                                    "watched": false
+                                },
+                                {
+                                    "authorized": true,
+                                    "clipId": "1cac2606-c678-4983-b4a8-89253b7c9164",
+                                    "duration": 133,
+                                    "formattedDuration": "2:13",
+                                    "id": "go-cli-playbook:fb4c9919-2330-42fd-a92b-c5226ac98338:10:mike-vansickle",
+                                    "index": 10,
+                                    "moduleIndex": 2,
+                                    "moduleTitle": "Building and Running Programs",
+                                    "name": "1cac2606-c678-4983-b4a8-89253b7c9164",
+                                    "title": "Summary",
+                                    "watched": false
+                                }
+                            ]
+                        },
+                        {
+                            "name": "7149eb9a-ed9b-427c-a336-6a52f6a1cae4",
+                            "title": "Testing Programs",
+                            "duration": 2051,
+                            "formattedDuration": "34:11",
+                            "author": "mike-vansickle",
+                            "authorized": true,
+                            "clips": [
+                                {
+                                    "authorized": true,
+                                    "clipId": "9fc9c3b2-b2a2-4f15-87e4-773f427bf4bb",
+                                    "duration": 87,
+                                    "formattedDuration": "1:27",
+                                    "id": "go-cli-playbook:7149eb9a-ed9b-427c-a336-6a52f6a1cae4:0:mike-vansickle",
+                                    "index": 0,
+                                    "moduleIndex": 3,
+                                    "moduleTitle": "Testing Programs",
+                                    "name": "9fc9c3b2-b2a2-4f15-87e4-773f427bf4bb",
+                                    "title": "Introduction",
+                                    "watched": false
+                                },
+                                {
+                                    "authorized": true,
+                                    "clipId": "9c5b3bfc-2e68-4a76-b3b0-a0db1c047860",
+                                    "duration": 213,
+                                    "formattedDuration": "3:33",
+                                    "id": "go-cli-playbook:7149eb9a-ed9b-427c-a336-6a52f6a1cae4:1:mike-vansickle",
+                                    "index": 1,
+                                    "moduleIndex": 3,
+                                    "moduleTitle": "Testing Programs",
+                                    "name": "9c5b3bfc-2e68-4a76-b3b0-a0db1c047860",
+                                    "title": "Demo: Running Basic Tests",
+                                    "watched": false
+                                },
+                                {
+                                    "authorized": true,
+                                    "clipId": "634de549-c3c5-4572-aec1-ec045fcb9f07",
+                                    "duration": 402,
+                                    "formattedDuration": "6:42",
+                                    "id": "go-cli-playbook:7149eb9a-ed9b-427c-a336-6a52f6a1cae4:2:mike-vansickle",
+                                    "index": 2,
+                                    "moduleIndex": 3,
+                                    "moduleTitle": "Testing Programs",
+                                    "name": "634de549-c3c5-4572-aec1-ec045fcb9f07",
+                                    "title": "Demo: Using Test Flags",
+                                    "watched": false
+                                },
+                                {
+                                    "authorized": true,
+                                    "clipId": "65d2c6a3-0d30-462d-b37a-d098c956ddce",
+                                    "duration": 425,
+                                    "formattedDuration": "7:05",
+                                    "id": "go-cli-playbook:7149eb9a-ed9b-427c-a336-6a52f6a1cae4:3:mike-vansickle",
+                                    "index": 3,
+                                    "moduleIndex": 3,
+                                    "moduleTitle": "Testing Programs",
+                                    "name": "65d2c6a3-0d30-462d-b37a-d098c956ddce",
+                                    "title": "Demo: Generating Code Coverage Reports",
+                                    "watched": false
+                                },
+                                {
+                                    "authorized": true,
+                                    "clipId": "4f4acf83-688b-4986-96a8-5556affa09fa",
+                                    "duration": 272,
+                                    "formattedDuration": "4:32",
+                                    "id": "go-cli-playbook:7149eb9a-ed9b-427c-a336-6a52f6a1cae4:4:mike-vansickle",
+                                    "index": 4,
+                                    "moduleIndex": 3,
+                                    "moduleTitle": "Testing Programs",
+                                    "name": "4f4acf83-688b-4986-96a8-5556affa09fa",
+                                    "title": "Demo: Running Benchmarking Tests",
+                                    "watched": false
+                                },
+                                {
+                                    "authorized": true,
+                                    "clipId": "92c02f66-6f3e-413e-b1ca-a7b362374fbf",
+                                    "duration": 569,
+                                    "formattedDuration": "9:29",
+                                    "id": "go-cli-playbook:7149eb9a-ed9b-427c-a336-6a52f6a1cae4:5:mike-vansickle",
+                                    "index": 5,
+                                    "moduleIndex": 3,
+                                    "moduleTitle": "Testing Programs",
+                                    "name": "92c02f66-6f3e-413e-b1ca-a7b362374fbf",
+                                    "title": "Demo: Generating Performance Profiles",
+                                    "watched": false
+                                },
+                                {
+                                    "authorized": true,
+                                    "clipId": "448be357-26ed-461c-9d29-412749e9911b",
+                                    "duration": 80,
+                                    "formattedDuration": "1:20",
+                                    "id": "go-cli-playbook:7149eb9a-ed9b-427c-a336-6a52f6a1cae4:6:mike-vansickle",
+                                    "index": 6,
+                                    "moduleIndex": 3,
+                                    "moduleTitle": "Testing Programs",
+                                    "name": "448be357-26ed-461c-9d29-412749e9911b",
+                                    "title": "Summary",
+                                    "watched": false
+                                }
+                            ]
+                        },
+                        {
+                            "name": "3e0770f2-a51c-408c-8f2e-34dc88393abc",
+                            "title": "Managing Workspaces",
+                            "duration": 1128,
+                            "formattedDuration": "18:48",
+                            "author": "mike-vansickle",
+                            "authorized": true,
+                            "clips": [
+                                {
+                                    "authorized": true,
+                                    "clipId": "d2b31b7f-6df1-4aea-8bb7-512adc6beb22",
+                                    "duration": 62,
+                                    "formattedDuration": "1:02",
+                                    "id": "go-cli-playbook:3e0770f2-a51c-408c-8f2e-34dc88393abc:0:mike-vansickle",
+                                    "index": 0,
+                                    "moduleIndex": 4,
+                                    "moduleTitle": "Managing Workspaces",
+                                    "name": "d2b31b7f-6df1-4aea-8bb7-512adc6beb22",
+                                    "title": "Introduction",
+                                    "watched": false
+                                },
+                                {
+                                    "authorized": true,
+                                    "clipId": "93774830-56a0-4012-b7e9-68c958fad3fb",
+                                    "duration": 226,
+                                    "formattedDuration": "3:46",
+                                    "id": "go-cli-playbook:3e0770f2-a51c-408c-8f2e-34dc88393abc:1:mike-vansickle",
+                                    "index": 1,
+                                    "moduleIndex": 4,
+                                    "moduleTitle": "Managing Workspaces",
+                                    "name": "93774830-56a0-4012-b7e9-68c958fad3fb",
+                                    "title": "Demo: Cleaning Workspaces",
+                                    "watched": false
+                                },
+                                {
+                                    "authorized": true,
+                                    "clipId": "32f863dc-c174-4f50-b9c4-59b6c1188bde",
+                                    "duration": 225,
+                                    "formattedDuration": "3:45",
+                                    "id": "go-cli-playbook:3e0770f2-a51c-408c-8f2e-34dc88393abc:2:mike-vansickle",
+                                    "index": 2,
+                                    "moduleIndex": 4,
+                                    "moduleTitle": "Managing Workspaces",
+                                    "name": "32f863dc-c174-4f50-b9c4-59b6c1188bde",
+                                    "title": "Demo: Formatting Source Code",
+                                    "watched": false
+                                },
+                                {
+                                    "authorized": true,
+                                    "clipId": "b78c885c-853e-4572-a0ad-6bbddd623683",
+                                    "duration": 151,
+                                    "formattedDuration": "2:31",
+                                    "id": "go-cli-playbook:3e0770f2-a51c-408c-8f2e-34dc88393abc:3:mike-vansickle",
+                                    "index": 3,
+                                    "moduleIndex": 4,
+                                    "moduleTitle": "Managing Workspaces",
+                                    "name": "b78c885c-853e-4572-a0ad-6bbddd623683",
+                                    "title": "Demo: Vetting Source Code",
+                                    "watched": false
+                                },
+                                {
+                                    "authorized": true,
+                                    "clipId": "9fb0d252-1fb1-4b7a-96ba-75c49e3dee4e",
+                                    "duration": 345,
+                                    "formattedDuration": "5:45",
+                                    "id": "go-cli-playbook:3e0770f2-a51c-408c-8f2e-34dc88393abc:4:mike-vansickle",
+                                    "index": 4,
+                                    "moduleIndex": 4,
+                                    "moduleTitle": "Managing Workspaces",
+                                    "name": "9fb0d252-1fb1-4b7a-96ba-75c49e3dee4e",
+                                    "title": "Demo: Generating Source Code",
+                                    "watched": false
+                                },
+                                {
+                                    "authorized": true,
+                                    "clipId": "1653a94c-9c7b-4c51-a9ac-0d4208b036c8",
+                                    "duration": 116,
+                                    "formattedDuration": "1:56",
+                                    "id": "go-cli-playbook:3e0770f2-a51c-408c-8f2e-34dc88393abc:5:mike-vansickle",
+                                    "index": 5,
+                                    "moduleIndex": 4,
+                                    "moduleTitle": "Managing Workspaces",
+                                    "name": "1653a94c-9c7b-4c51-a9ac-0d4208b036c8",
+                                    "title": "Summary",
+                                    "watched": false
+                                }
+                            ]
+                        },
+                        {
+                            "name": "631d2e14-02f7-4482-8bc6-108eb2f9c784",
+                            "title": "Interacting with the Environment",
+                            "duration": 1462,
+                            "formattedDuration": "24:22",
+                            "author": "mike-vansickle",
+                            "authorized": true,
+                            "clips": [
+                                {
+                                    "authorized": true,
+                                    "clipId": "38372fc0-493b-4a80-a05b-ec3b124cae36",
+                                    "duration": 58,
+                                    "formattedDuration": "0:58",
+                                    "id": "go-cli-playbook:631d2e14-02f7-4482-8bc6-108eb2f9c784:0:mike-vansickle",
+                                    "index": 0,
+                                    "moduleIndex": 5,
+                                    "moduleTitle": "Interacting with the Environment",
+                                    "name": "38372fc0-493b-4a80-a05b-ec3b124cae36",
+                                    "title": "Introduction",
+                                    "watched": false
+                                },
+                                {
+                                    "authorized": true,
+                                    "clipId": "7e4b1fc1-057b-4de4-82ae-3816a28bfea4",
+                                    "duration": 64,
+                                    "formattedDuration": "1:04",
+                                    "id": "go-cli-playbook:631d2e14-02f7-4482-8bc6-108eb2f9c784:1:mike-vansickle",
+                                    "index": 1,
+                                    "moduleIndex": 5,
+                                    "moduleTitle": "Interacting with the Environment",
+                                    "name": "7e4b1fc1-057b-4de4-82ae-3816a28bfea4",
+                                    "title": "Demo: Finding Go's Version",
+                                    "watched": false
+                                },
+                                {
+                                    "authorized": true,
+                                    "clipId": "87fc9909-5d55-49e4-a49d-60d0f9f79676",
+                                    "duration": 122,
+                                    "formattedDuration": "2:02",
+                                    "id": "go-cli-playbook:631d2e14-02f7-4482-8bc6-108eb2f9c784:2:mike-vansickle",
+                                    "index": 2,
+                                    "moduleIndex": 5,
+                                    "moduleTitle": "Interacting with the Environment",
+                                    "name": "87fc9909-5d55-49e4-a49d-60d0f9f79676",
+                                    "title": "Demo: Exploring Environment Settings",
+                                    "watched": false
+                                },
+                                {
+                                    "authorized": true,
+                                    "clipId": "928f1c41-7d69-4fe8-9c3c-c3854bdaaf25",
+                                    "duration": 252,
+                                    "formattedDuration": "4:12",
+                                    "id": "go-cli-playbook:631d2e14-02f7-4482-8bc6-108eb2f9c784:3:mike-vansickle",
+                                    "index": 3,
+                                    "moduleIndex": 5,
+                                    "moduleTitle": "Interacting with the Environment",
+                                    "name": "928f1c41-7d69-4fe8-9c3c-c3854bdaaf25",
+                                    "title": "Demo: Listing Packages",
+                                    "watched": false
+                                },
+                                {
+                                    "authorized": true,
+                                    "clipId": "c1eee9b2-a2fb-4cc1-a2d9-b1e61ce33c7b",
+                                    "duration": 405,
+                                    "formattedDuration": "6:45",
+                                    "id": "go-cli-playbook:631d2e14-02f7-4482-8bc6-108eb2f9c784:4:mike-vansickle",
+                                    "index": 4,
+                                    "moduleIndex": 5,
+                                    "moduleTitle": "Interacting with the Environment",
+                                    "name": "c1eee9b2-a2fb-4cc1-a2d9-b1e61ce33c7b",
+                                    "title": "Demo: Viewing Documentation",
+                                    "watched": false
+                                },
+                                {
+                                    "authorized": true,
+                                    "clipId": "cb9b0468-33a7-4f59-b6dd-84a623ce8a2a",
+                                    "duration": 224,
+                                    "formattedDuration": "3:44",
+                                    "id": "go-cli-playbook:631d2e14-02f7-4482-8bc6-108eb2f9c784:5:mike-vansickle",
+                                    "index": 5,
+                                    "moduleIndex": 5,
+                                    "moduleTitle": "Interacting with the Environment",
+                                    "name": "cb9b0468-33a7-4f59-b6dd-84a623ce8a2a",
+                                    "title": "Demo: Getting Packages",
+                                    "watched": false
+                                },
+                                {
+                                    "authorized": true,
+                                    "clipId": "871e0ac7-ccb1-4da8-8337-429d678d3af2",
+                                    "duration": 109,
+                                    "formattedDuration": "1:49",
+                                    "id": "go-cli-playbook:631d2e14-02f7-4482-8bc6-108eb2f9c784:6:mike-vansickle",
+                                    "index": 6,
+                                    "moduleIndex": 5,
+                                    "moduleTitle": "Interacting with the Environment",
+                                    "name": "871e0ac7-ccb1-4da8-8337-429d678d3af2",
+                                    "title": "Demo: Reporting Bugs",
+                                    "watched": false
+                                },
+                                {
+                                    "authorized": true,
+                                    "clipId": "43817cb5-a220-4879-83fb-b597c2cb8fd4",
+                                    "duration": 224,
+                                    "formattedDuration": "3:44",
+                                    "id": "go-cli-playbook:631d2e14-02f7-4482-8bc6-108eb2f9c784:7:mike-vansickle",
+                                    "index": 7,
+                                    "moduleIndex": 5,
+                                    "moduleTitle": "Interacting with the Environment",
+                                    "name": "43817cb5-a220-4879-83fb-b597c2cb8fd4",
+                                    "title": "Summary",
+                                    "watched": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}
+4.
+https://app.pluralsight.com/player/api/graphql
+Request:
+{"query":"\n        query viewClip {\n          viewClip(input: {\n            author: \"mike-vansickle\", \n            clipIndex: 0, \n            courseName: \"go-cli-playbook\", \n            includeCaptions: false, \n            locale: \"en\", \n            mediaType: \"mp4\", \n            moduleName: \"fb4c9919-2330-42fd-a92b-c5226ac98338\", \n            quality: \"1280x720\"\n          }) {\n            urls {\n              url\n              cdn\n              rank\n              source\n            },\n            status\n          }\n        }\n      ","variables":{}}
+
+Response:
+{
+  "data": {
+    "viewClip": {
+      "urls": [
+        {
+          "url": "https://vid5.pluralsight.com/expiretime=1533019009/07dc29b36e3e2f42d0f800e4d5610566/clips/resolution/97c978fd-2bf3-46ae-939f-e3a9b0bf3700/current/mp4/1280x720.mp4",
+          "cdn": "cachefly",
+          "rank": 1,
+          "source": null
+        },
+        {
+          "url": "https://vid21.pluralsight.com/clips/resolution/97c978fd-2bf3-46ae-939f-e3a9b0bf3700/current/mp4/1280x720.mp4?tQ4wB3pus7ZsYASJuxjmKJZ_QkscLVLSUY5qNxe_j72HnL0fWcIMkgn2Y6-FwN7LeAOscw3XF7-fsmhwSDQtZrSg_eGQ1Fxmwpbz_4XieKIhAUCp-oIkOkmLwDUzxdPaeBKNf2iO3K_i-n4KuJeXXQ7MJXkbuJVxhxlhHSlj35FODQ1ZveuYangnIaK9",
+          "cdn": "edgecast",
+          "rank": 2,
+          "source": null
+        },
+        {
+          "url": "https://vid20.pluralsight.com/clips/resolution/97c978fd-2bf3-46ae-939f-e3a9b0bf3700/current/mp4/1280x720.mp4?ME0TlLgQtcl9-1VcQl_LNI5LlvV2PILBq3XOZQkCbaLJs9Qney4WhkmqEhES6r0h6DA9E7x1cI2UQeh0rjR2LS0qiBPxVG_zYgspYr3j0brSEx14KVzZrWK3iAI_wcBwlQ0Uc1T2Jd03dwUki4CHIoTSHhNtRzNRrpM4Gs2cHWin92R6xh4pdLVbbccw",
+          "cdn": "edgecast",
+          "rank": 2,
+          "source": null
+        },
+        {
+          "url": "https://vid.pluralsight.com/clips/resolution/97c978fd-2bf3-46ae-939f-e3a9b0bf3700/current/mp4/1280x720.mp4?SxmnxhwugOa68aCl4AHnHrtmY0NeZzXVgIj3dAN9qC1OceKqSKjpUxThSJzo2WN5t1nQnBcPQiBL478-orhws1x-SpADEblt96qpgT31kgAaJlFdGb4ecboKi3TE-r8PeN2xzJFow5PJ_tsfTKDjcmqCHwZZKGeWAhRhZnkUZiwwnH2qwSkxnc-A8WOu",
+          "cdn": "edgecast",
+          "rank": 2,
+          "source": null
+        }
+      ],
+      "status": 200
+    }
+  }
+}

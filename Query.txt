@@ -1,0 +1,48 @@
+query BootstrapPlayer {
+  rpc {
+    bootstrapPlayer {
+      profile {
+        firstName
+        lastName
+        email
+        username
+        userHandle
+        authed
+        isAuthed
+        plan
+      }
+      course(courseId: "go-cli-playbook") {
+        name
+        title
+        courseHasCaptions
+        translationLanguages {
+          code
+          name
+        }
+        supportsWideScreenVideoFormats
+        timestamp
+        modules {
+          name
+          title
+          duration
+          formattedDuration
+          author
+          authorized
+          clips {
+            authorized
+            clipId
+            duration
+            formattedDuration
+            id
+            index
+            moduleIndex
+            moduleTitle
+            name
+            title
+            watched
+          }
+        }
+      }
+    }
+  }
+}
