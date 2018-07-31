@@ -9,7 +9,7 @@ C:\Users\user\Downloads> go build Pluralsight.go
 # Windows Setup
 [https://github.com/prabaprakash/Pluralsight-Downloader/releases/download/V1.0/Pluralsight.exe]
 
-`````
+````
 open cmd
 C:\Users\user\Downloads> Pluralsight.exe --name="demo@gmail.com" --password="demo123" --playlisturl="https://app.pluralsight.com/player?course=go-cli-playbook"
 Processing MetaData for: 0_Course_Overview_0_Course_Overview.mp4
@@ -87,6 +87,7 @@ Download :  5_Interacting_with_the_Environment_4_Demo_Viewing_Documentation.mp4
 Download :  5_Interacting_with_the_Environment_5_Demo_Getting_Packages.mp4
 Download :  5_Interacting_with_the_Environment_6_Demo_Reporting_Bugs.mp4
 Download :  5_Interacting_with_the_Environment_7_Summary.mp4
+Time Taken:  1m2.2996694s
 ````
 
 ``Note``
