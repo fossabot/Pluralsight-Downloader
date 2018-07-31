@@ -1,8 +1,17 @@
 ``Pluralsight Downloader``
 
-````
-go build Pluralsight.go
-Pluralsight.exe --name="demo@gmail.com" --password="demo123" --playlisturl="https://app.pluralsight.com/player?course=go-cli-playbook&author=mike-vansickle&name=45c18713-161d-4455-a309-56507c151581&clip=3&mode=live"
+
+# Build from Source
+Open cmd
+```
+C:\Users\user\Downloads> go build Pluralsight.go
+```
+# Windows Setup
+[https://github.com/prabaprakash/Pluralsight-Downloader/releases/download/V1.0/Pluralsight.exe]
+
+`````
+open cmd
+C:\Users\user\Downloads> Pluralsight.exe --name="demo@gmail.com" --password="demo123" --playlisturl="https://app.pluralsight.com/player?course=go-cli-playbook"
 Processing MetaData for: 0_Course_Overview_0_Course_Overview.mp4
 Processing MetaData for: 1_Introduction_0_Introduction.mp4
 Processing MetaData for: 1_Introduction_1_The_Go_Command.mp4
