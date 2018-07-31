@@ -234,7 +234,7 @@ func main() {
 	close(jobs)
 	// Finally we collect all the results of the work.
 	for a := 0; a < length; a++ {
-		fmt.Println("Download : ", <-results)
+		fmt.Println("Downloaded : ", <-results)
 	}
 	fmt.Println("Time Taken: ", time.Since(start).String())
 }
