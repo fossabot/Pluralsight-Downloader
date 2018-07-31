@@ -1,4 +1,5 @@
 ``Pluralsight Downloader``
+
 ````
 go build Pluralsight.go
 Pluralsight.exe --name=demo@gmail.com --password=demo123 --playlisturl=https://app.pluralsight.com/player?course=go-cli-playbook&author=mike-vansickle&name=45c18713-161d-4455-a309-56507c151581&clip=3&mode=live
@@ -81,3 +82,4 @@ Download :  5_Interacting_with_the_Environment_7_Summary.mp4
 
 ``Note``
 purely doing for Research purpose
+They put lot of efforts for preparing content
