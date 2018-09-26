@@ -164,13 +164,15 @@ func FiveDownloadSubtitle(fileName string, id string) {
 	w := bufio.NewWriter(file)
 	for i := 0; i < len(*_subtitleContent)-1; i++ {
 		totalSeconds := (*_subtitleContent)[i].DisplayTimeOffset
-		minutes := fmt.Sprintf("%.0f", totalSeconds/60)
-		seconds := fmt.Sprintf("%.3f", math.Mod(totalSeconds, 60))
-		afTotalSeconds := (*_subtitleContent)[i+1].DisplayTimeOffset - 0.0001
-		afMinutes := fmt.Sprintf("%.0f", afTotalSeconds/60)
-		afSeconds := fmt.Sprintf("%.3f", math.Mod(afTotalSeconds, 60))
+		minutes := fmt.Sprintf("%02.0f", totalSeconds/60)
+		seconds := fmt.Sprintf("%06.3f", math.Mod(totalSeconds, 60))
+		seconds = strings.Replace(seconds, ".", ",", -1)
+		nextTotalSeconds := (*_subtitleContent)[i+1].DisplayTimeOffset
+		nextMinutes := fmt.Sprintf("%02.0f", nextTotalSeconds/60)
+		nextSeconds := fmt.Sprintf("%06.3f", math.Mod(nextTotalSeconds, 60))
+		nextSeconds = strings.Replace(nextSeconds, ".", ",", -1)
 		fmt.Fprintln(w, i+1)
-		fmt.Fprintln(w, "00:"+minutes+":"+seconds+" --> 00:"+afMinutes+":"+afSeconds)
+		fmt.Fprintln(w, "00:"+minutes+":"+seconds+" --> 00:"+nextMinutes+":"+nextSeconds)
 		fmt.Fprintln(w, (*_subtitleContent)[i].Text)
 		fmt.Fprintln(w)
 	}
