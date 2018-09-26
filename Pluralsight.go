@@ -1,11 +1,13 @@
 package main
 
 import (
+	"bufio"
 	"bytes"
 	"encoding/json"
 	"flag"
 	"fmt"
 	"io/ioutil"
+	"math"
 	"net/http"
 	"net/url"
 	"os"
@@ -83,6 +85,11 @@ type playListsStruct struct {
 	} `json:"data"`
 }
 
+type subtitleContent []struct {
+	Text              string  `json:"text"`
+	DisplayTimeOffset float64 `json:"displayTimeOffset"`
+}
+
 func OneGetAuth(email string, password string) *authStruct {
 	var cdnurl = "https://app.pluralsight.com/mobile-api/v2/user/device/authenticated"
 	client := &http.Client{}
@@ -136,6 +143,41 @@ func ThreeGetPlayLists(_tokenStruct *tokenStruct, course_name string) *playLists
 	return _playListsStruct
 }
 
+func FiveDownloadSubtitle(fileName string, id string) {
+	fileName = strings.Replace(fileName, ".mp4", ".srt", -1)
+	var suburl = "https://app.pluralsight.com/player/retrieve-captions"
+	client := &http.Client{}
+	clip_id := strings.Split(id, ":")[1]
+	clip_index := strings.Split(id, ":")[2]
+	author := strings.Split(id, ":")[3]
+	query := "{\"a\":\"" + author + "\",\"m\":\"" + clip_id + "\",\"cn\":" + clip_index + ",\"lc\":\"en\"}"
+	var jsonStr = []byte(query)
+	req, _ := http.NewRequest("POST", suburl, bytes.NewBuffer(jsonStr))
+	req.Header.Set("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36")
+	req.Header.Set("content-type", "application/json;charset=UTF-8")
+	resp, _ := client.Do(req)
+	defer resp.Body.Close()
+	fmt.Println(resp.StatusCode)
+	_subtitleContent := new(subtitleContent)
+	json.NewDecoder(resp.Body).Decode(_subtitleContent)
+	file, _ := os.Create(fileName)
+	defer file.Close()
+	w := bufio.NewWriter(file)
+	for i := 0; i < len(*_subtitleContent)-1; i++ {
+		totalSeconds := (*_subtitleContent)[i].DisplayTimeOffset
+		minutes := fmt.Sprintf("%.0f", totalSeconds/60)
+		seconds := fmt.Sprintf("%.4f", math.Mod(totalSeconds, 60))
+		afTotalSeconds := (*_subtitleContent)[i+1].DisplayTimeOffset - 0.0001
+		afMinutes := fmt.Sprintf("%.0f", afTotalSeconds/60)
+		afSeconds := fmt.Sprintf("%.4f", math.Mod(afTotalSeconds, 60))
+		fmt.Fprintln(w, i+1)
+		fmt.Fprintln(w, "00:"+minutes+":"+seconds+" --> 00:"+afMinutes+":"+afSeconds)
+		fmt.Fprintln(w, (*_subtitleContent)[i].Text)
+		fmt.Fprintln(w)
+	}
+	w.Flush()
+}
+
 func FourGetVideoMetadata(_tokenStruct *tokenStruct, id string) string {
 	time.Sleep(1 * time.Second)
 	var cdnurl = "https://app.pluralsight.com/player/api/graphql"
@@ -182,6 +224,7 @@ func worker(i int, jobs <-chan list, results chan<- string) {
 		reader, _ := ioutil.ReadAll(resp.Body)
 		ioutil.WriteFile(j.fileName, []byte(string(reader)), 0x777) // Write to the file i as a byte array
 		resp.Body.Close()
+		FiveDownloadSubtitle(j.fileName, j.id)
 		//fmt.Println("worker", i, "finished job", j.id)
 		results <- j.fileName
 	}
@@ -190,6 +233,7 @@ func worker(i int, jobs <-chan list, results chan<- string) {
 type list struct {
 	fileName string `json:"fileName"`
 	url      string `json:"url"`
+	id       string `json:"id"`
 }
 
 var name = flag.String("name", "", "Enter the username")
@@ -214,7 +258,7 @@ func main() {
 			name = strings.Replace(name, "'", "", -1)
 			url := FourGetVideoMetadata(_tokenStruct, module.Clips[j].ID)
 			fmt.Println("Processing MetaData for:", name)
-			_list = append(_list, list{fileName: name, url: url})
+			_list = append(_list, list{fileName: name, url: url, id: module.Clips[j].ID})
 			// break
 		}
 		// break
