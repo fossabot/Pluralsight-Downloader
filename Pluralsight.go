@@ -165,10 +165,10 @@ func FiveDownloadSubtitle(fileName string, id string) {
 	for i := 0; i < len(*_subtitleContent)-1; i++ {
 		totalSeconds := (*_subtitleContent)[i].DisplayTimeOffset
 		minutes := fmt.Sprintf("%.0f", totalSeconds/60)
-		seconds := fmt.Sprintf("%.4f", math.Mod(totalSeconds, 60))
+		seconds := fmt.Sprintf("%.3f", math.Mod(totalSeconds, 60))
 		afTotalSeconds := (*_subtitleContent)[i+1].DisplayTimeOffset - 0.0001
 		afMinutes := fmt.Sprintf("%.0f", afTotalSeconds/60)
-		afSeconds := fmt.Sprintf("%.4f", math.Mod(afTotalSeconds, 60))
+		afSeconds := fmt.Sprintf("%.3f", math.Mod(afTotalSeconds, 60))
 		fmt.Fprintln(w, i+1)
 		fmt.Fprintln(w, "00:"+minutes+":"+seconds+" --> 00:"+afMinutes+":"+afSeconds)
 		fmt.Fprintln(w, (*_subtitleContent)[i].Text)
