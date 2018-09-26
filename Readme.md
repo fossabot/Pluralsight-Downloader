@@ -1,5 +1,5 @@
 ``Pluralsight Downloader``
-
+``Downloads Subtitle too``
 
 # Build from Source
 Open cmd
