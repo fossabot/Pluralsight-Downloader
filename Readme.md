@@ -7,7 +7,7 @@ Open cmd
 C:\Users\user\Downloads> go build Pluralsight.go
 ```
 # Windows Setup
-[https://github.com/prabaprakash/Pluralsight-Downloader/releases/download/V1.0/Pluralsight.exe]
+[https://github.com/prabaprakash/Pluralsight-Downloader/releases/download/v1.1/Pluralsight.exe]
 
 ````
 open cmd
