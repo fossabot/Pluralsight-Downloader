@@ -157,7 +157,6 @@ func FiveDownloadSubtitle(fileName string, id string) {
 	req.Header.Set("content-type", "application/json;charset=UTF-8")
 	resp, _ := client.Do(req)
 	defer resp.Body.Close()
-	fmt.Println(resp.StatusCode)
 	_subtitleContent := new(subtitleContent)
 	json.NewDecoder(resp.Body).Decode(_subtitleContent)
 	file, _ := os.Create(fileName)
@@ -225,7 +224,7 @@ func worker(i int, jobs <-chan list, results chan<- string) {
 		ioutil.WriteFile(j.fileName, []byte(string(reader)), 0x777) // Write to the file i as a byte array
 		resp.Body.Close()
 		FiveDownloadSubtitle(j.fileName, j.id)
-		//fmt.Println("worker", i, "finished job", j.id)
+		fmt.Println("Downloaded : ", j.fileName)
 		results <- j.fileName
 	}
 }
@@ -278,7 +277,7 @@ func main() {
 	close(jobs)
 	// Finally we collect all the results of the work.
 	for a := 0; a < length; a++ {
-		fmt.Println("Downloaded : ", <-results)
+		<-results
 	}
 	fmt.Println("Time Taken: ", time.Since(start).String())
 }
