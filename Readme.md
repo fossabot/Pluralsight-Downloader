@@ -1,4 +1,4 @@
-``Pluralsight Downloader``
+# Pluralsight Downloader
 ``Downloads Subtitle too``
 
 # Build from Source
