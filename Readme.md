@@ -1,4 +1,6 @@
 # Pluralsight Downloader
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fprabaprakash%2FPluralsight-Downloader.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fprabaprakash%2FPluralsight-Downloader?ref=badge_shield)
+
 ``Downloads Subtitle too``
 
 # Build from Source
@@ -93,3 +95,7 @@ Time Taken:  1m2.2996694s
 ``Note``
 purely doing for Research purpose
 They put lot of efforts for preparing content
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fprabaprakash%2FPluralsight-Downloader.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fprabaprakash%2FPluralsight-Downloader?ref=badge_large)
